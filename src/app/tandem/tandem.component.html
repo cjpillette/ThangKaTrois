@@ -29,7 +29,8 @@
       <p>Pour l’atterrissage, la plupart du temps on retouche doucement, comme si on descendait d’une petite marche. Il est important quand même de bien sortir de la sellette pour se poser sur les pieds. C’est une question d’élégance pour impressionner vos admirateurs qui vous attendent en bas.</p>
       <p>Pour prolonger le plaisir et garder les meilleurs souvenirs, le moniteur vous offre la possibilité de réaliser une vidéo en HD de votre vol avec une caméra spécialisée ’activités sportives’. A demander avec la réservation du vol.</p>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Quand ?
@@ -41,7 +42,8 @@
         <p>Le lieu de décollage et la durée du vol en parapente dépendent des conditions météo que nous ne contrôlons pas et qui sont parfois difficiles à prévoir.</p>
         <p>Nous essayons toujours de vous prévenir au plus vite, il est donc important d’avoir son portable à porté de mains avant le rendez-vous.</p>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Pour qui ?
@@ -53,7 +55,8 @@
       Une autorisation parentale écrite est obligatoire pour les mineurs</p>
       <p>Parapente biplace en fauteuil</p>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Nous volons où ?
@@ -64,7 +67,8 @@
         <p>Il y une vingtaine de décollages différents autour du Puy Mary et du Puy de la Tourte, dans la vallée de la Santoire (en face de Dienne, au Rocher de Laqueuille ou à Engouniou, au-dessus de Dienne à Embec ou à Nozières), au Plomb du Cantal ou dans la vallée de Brezons.</p>
         <p>Nous cherchons toujours l’endroit idéal par rapport à la vitesse et la direction du vent : pour décoller il nous faut toujours un vent de face, donc nous ne pouvons pas dire en avance où le vol sera effectué. Le lieu se décide au dernier moment, juste avant de partir.</p>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Le vol dure combien de temps ?
@@ -75,7 +79,8 @@
       <p>La durée du vol dépend du vent et des thermiques qui nous permettent de rester en l’air ou pas. N’ayant pas de moteur nous ne pouvons pas dire en ’avance combien de temps le vol durera. Souvent ce sera entre 10 et 25 minutes.</p>
       <p>Si vous préférez des conditions calmes, réservez plutôt votre vol tôt le matin ou plus tard le soir. Si vous cherchez plus de sensations, réservez plutôt vers 11h ou l’après-midi.</p>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           A prevoir
@@ -92,7 +97,8 @@
         </ul>
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Les accompagnants
@@ -104,7 +110,8 @@
         <p>Sur certains sites, des bancs et / ou des parasols sont prévus mais pas partout, prévoyez ce qu’il faut, surtout avec des enfants.</p>
         <p>N’oubliez pas la crème solaire, éventuellement un petit parasol, le casse-croûte, de l’eau, des jeux, un livre</p>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Tarifs
