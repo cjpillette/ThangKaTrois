@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SitesComponent implements OnInit {
 
+  latitude: number = 45.1614957;
+  longitude: number = 2.7764246;
   constructor() { }
 
   ngOnInit() {
