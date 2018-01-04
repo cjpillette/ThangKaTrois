@@ -53,8 +53,9 @@ export class CalendarComponent implements OnInit {
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
         let td = this.renderer.createElement("td");
-        let moment: moment.Moment = monthArray[i]['days'][j];
-        let cellText = this.renderer.createText(moment.format("DD"));
+        let momentMoment: number = monthArray[i]['days'][j];
+        let momentString: string = momentMoment.toString();
+        let cellText = this.renderer.createText(momentString);
         this.renderer.appendChild(td, cellText);
         this.renderer.appendChild(tr, td);
       }
