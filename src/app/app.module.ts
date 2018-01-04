@@ -32,6 +32,7 @@ import { HousingComponent } from './area/housing/housing.component';
 import { WeatherComponent } from './area/weather/weather.component';
 import { SitesComponent } from './area/sites/sites.component';
 import { TravelsComponent } from './area/travels/travels.component';
+import { RegistrationComponent } from './school/registration/registration.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
   { path: 'voyages', component: TravelsComponent },
   { path: 'meteo', component: WeatherComponent },
   { path: 'se-loger', component: HousingComponent },
-  { path: 'calendrier', component: CalendarComponent }
+  { path: 'calendrier', component: CalendarComponent },
+  { path: 'stage/inscription', component: RegistrationComponent }
 ];
 
 @NgModule({
@@ -58,7 +60,8 @@ const appRoutes: Routes = [
     HousingComponent,
     WeatherComponent,
     SitesComponent,
-    TravelsComponent
+    TravelsComponent,
+    RegistrationComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
