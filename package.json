@@ -31,6 +31,8 @@
     "express": "^4.16.2",
     "hbs": "^4.0.1",
     "moment": "^2.20.1",
+    "mongoose": "^5.0.0-rc2",
+    "mongoose-unique-validator": "^1.0.6",
     "morgan": "^1.9.0",
     "ngx-bootstrap": "^2.0.0-rc.0",
     "reflect-metadata": "^0.1.10",
