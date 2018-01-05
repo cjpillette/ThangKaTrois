@@ -1,0 +1,14 @@
+<div>
+  <h2>{{ currentMonth }}</h2>
+  <table>
+    <th
+      *ngFor="let day of days"
+      class="day-header">
+      {{ day }}
+    </th>
+    <tbody #tableBody>
+    </tbody>
+  </table>
+</div>
+
+<a routerLink="/stage/inscription">Fiche d'inscription</a>

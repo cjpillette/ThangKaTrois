@@ -1,0 +1,21 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 480px;
+  justify-content: center;
+  margin: auto;
+}
+
+.lieu-card {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  background-color: pink;
+}
+
+.lieu-card-contact {
+  height: 300px;
+  width: 440px;
+  margin: 20px;
+  background-color: purple;
+}

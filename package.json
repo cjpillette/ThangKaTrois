@@ -3,12 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "node ./bin/www",
+    "build": "del-cli public/js/app && webpack --config webpack.config.dev.js --progress --profile --watch",
+    "build:prod": "del-cli public/js/app && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'assets/app/**/*.js' 'assets/app/**/*.ngsummary.json' 'assets/app/**/*.ngstyle.*'"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +49,7 @@
     "@types/node": "^6.0.95",
     "angular-router-loader": "^0.8.2",
     "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.4.1",
     "codelyzer": "^4.0.1",
     "del-cli": "^1.1.0",
     "html-loader": "^0.5.1",
