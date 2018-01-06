@@ -1,7 +1,7 @@
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { NgModule } from '@angular/core';
@@ -33,16 +33,11 @@ import { WeatherComponent } from './area/weather/weather.component';
 import { SitesComponent } from './area/sites/sites.component';
 import { TravelsComponent } from './area/travels/travels.component';
 import { RegistrationComponent } from './school/registration/registration.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomepageComponent },
-  { path: 'sites-de-vol', component: SitesComponent },
-  { path: 'voyages', component: TravelsComponent },
-  { path: 'meteo', component: WeatherComponent },
-  { path: 'se-loger', component: HousingComponent },
-  { path: 'calendrier', component: CalendarComponent },
-  { path: 'stage/inscription', component: RegistrationComponent }
-];
+import { AuthenticationComponent } from './auth/authentication.component';
+import { routing } from "./app.routing";
+import { LogoutComponent } from "./auth/logout.component";
+import { SignupComponent } from "./auth/signup.component";
+import { SigninComponent } from "./auth/signin.component";
 
 @NgModule({
   declarations: [
@@ -61,7 +56,11 @@ const appRoutes: Routes = [
     WeatherComponent,
     SitesComponent,
     TravelsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AuthenticationComponent,
+    LogoutComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -81,7 +80,8 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatToolbarModule,
     MomentModule,
-    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
