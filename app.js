@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var appRoutes = require('./routes/app');
+var trainingRoutes = require('./routes/training');
 
 var app = express();
 mongoose.connect('localhost:27017/thang-ka');
@@ -30,6 +31,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/admin/stage', trainingRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

@@ -38,6 +38,10 @@ import { routing } from "./app.routing";
 import { LogoutComponent } from "./auth/logout.component";
 import { SignupComponent } from "./auth/signup.component";
 import { SigninComponent } from "./auth/signin.component";
+import { TrainingInputComponent } from "./admin/training-input.component";
+import { TrainingListComponent } from "./admin/training-list.component";
+import { TrainingComponent } from "./admin/training.component";
+import { TrainingsComponent } from "./admin/trainings.component";
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { SigninComponent } from "./auth/signin.component";
     AuthenticationComponent,
     LogoutComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    TrainingInputComponent,
+    TrainingListComponent,
+    TrainingComponent,
+    TrainingsComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

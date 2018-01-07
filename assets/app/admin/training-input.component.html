@@ -1,0 +1,40 @@
+<div class="col-md-8 col-md-offset-2">
+    <form [formGroup]="trainingForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="level">Type de stage</label>
+            <input
+                    type="text"
+                    id="level"
+                    class="form-control"
+                    formControlName="level">
+        </div>
+        <div class="form-group">
+            <label for="startDate">Date de debut de stage</label>
+            <input
+                    type="date"
+                    id="startDate"
+                    class="form-control"
+                    formControlName="startDate">
+        </div>
+        <div class="form-group">
+            <label for="endDate">Date de fin de stage</label>
+            <input
+                    type="date"
+                    id="endDate"
+                    class="form-control"
+                    formControlName="endDate">
+        </div>
+        <div class="form-group">
+            <label for="maxNumberOfParticipants">Nombre max de participants</label>
+            <input
+                    type="number"
+                    id="maxNumberOfParticipants"
+                    class="form-control"
+                    formControlName="maxNumberOfParticipants">
+        </div>
+        <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="!trainingForm.valid">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,20 @@
+<article class="panel panel-default">
+    <div class="panel-body">
+        {{ training.level }}
+    </div>
+    <footer class="panel-footer">
+        <div class="author">
+            debute: {{ message.startDate }}
+        </div>
+        <div class="author">
+            fini: {{ message.endDate }}
+        </div>
+        <div class="author">
+            nombre max de participants: {{ message.maxNumberOfParticipants }}
+        </div>
+        <div class="config">
+            <a (click)="onEdit()">Edit</a>
+            <a (click)="onDelete()">Delete</a>
+        </div>
+    </footer>
+</article>

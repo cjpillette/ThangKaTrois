@@ -8,6 +8,7 @@ import { WeatherComponent } from "./area/weather/weather.component";
 import { HousingComponent } from "./area/housing/housing.component";
 import { CalendarComponent } from "./calendar/calendar.component";
 import { RegistrationComponent } from "./school/registration/registration.component";
+import { TrainingsComponent } from "./admin/trainings.component";
 import { AUTH_ROUTES } from "./auth/auth.routes";
 
 const APP_ROUTES: Routes = [
@@ -18,6 +19,7 @@ const APP_ROUTES: Routes = [
     { path: 'se-loger', component: HousingComponent },
     { path: 'calendrier', component: CalendarComponent },
     { path: 'stage/inscription', component: RegistrationComponent },
+    { path: 'admin/stage', component: TrainingsComponent },
     { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES }
 ];
 
