@@ -16,10 +16,10 @@ export class TrainingInputComponent implements OnInit {
 
     ngOnInit() {
       this.trainingForm = new FormGroup({
-        level: new FormControl(null, Validators.required),
-        startDate: new FormControl(null, Validators.required),
-        endDate: new FormControl(null, Validators.required),
-        maxNumberOfParticipants: new FormControl(null, Validators.required)
+        level: new FormControl(this.training ? this.training.level : null, Validators.required),
+        startDate: new FormControl(this.training ? this.training.startDate : null, Validators.required),
+        endDate: new FormControl(this.training ? this.training.endDate : null, Validators.required),
+        maxNumberOfParticipants: new FormControl(this.training? this.training.maxNumberOfParticipants : null, Validators.required)
       });
       this.trainingService.trainingIsEdit.subscribe(
           (training: Training) => this.training = training
@@ -29,15 +29,15 @@ export class TrainingInputComponent implements OnInit {
     onSubmit() {
       if (this.training) {
           // Edit
-          this.training.content = this.trainingForm.value.content;
+          this.training.level = this.trainingForm.value.level;
           this.trainingService.updateTraining(this.training)
               .subscribe(
-                training => console.log(result)
+                training => console.log(training)
               );
           this.training = null;
       } else {
           // Create
-          const training = new Training(this.trainingForm.value.content, 'Max');
+          const training = new Training(this.trainingForm.value.level, new Date(), new Date(), 7, null);
           this.trainingService.addTraining(training)
               .subscribe(
                   data => console.log(data),
