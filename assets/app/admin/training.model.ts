@@ -1,7 +1,13 @@
 export class Training {
-    constructor(public level: string,
-                public startDate: Date,
-                public endDate: Date,
-                public maxNumberOfParticipants: number,
-                public trainingId: string) {}
+    content: string;
+    username: string;
+    trainingId?: string;
+    userId?: string;
+
+    constructor(content: string, username: string, trainingId?: string, userId?: string) {
+        this.content = content;
+        this.username = username;
+        this.trainingId = trainingId;
+        this.userId = userId;
+    }
 }

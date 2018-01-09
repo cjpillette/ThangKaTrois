@@ -15,10 +15,10 @@ export class TrainingService {
     addTraining(training: Training) {
         const body = JSON.stringify(training);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/training', body, {headers: headers})
+        return this.http.post('http://localhost:3000/admin/stage', body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
-                const training = new Training(result.obj.level, new Date(), new Date(), 7, result.obj._id);
+                const training = new Training(result.obj.content, 'Dummy', result.obj._id, null);
                 this.trainings.push(training);
                 return training;
             })
@@ -26,13 +26,14 @@ export class TrainingService {
     }
 
     getTrainings() {
-        return this.http.get('http://localhost:3000/training')
+        return this.http.get('http://localhost:3000/admin/stage')
             .map((response: Response) => {
                 const trainings = response.json().obj;
                 let transformedTrainings: Training[] = [];
                 for (let training of trainings) {
-                    transformedTrainings.push(new Training(training.level, new Date(), new Date(), 7, training._id));
+                    transformedTrainings.push(new Training(training.content, 'Dummy', training._id, null));
                 }
+                // below needed for the update function - keep id and content together
                 this.trainings = transformedTrainings;
                 return transformedTrainings;
             })
@@ -46,14 +47,14 @@ export class TrainingService {
     updateTraining(training: Training) {
         const body = JSON.stringify(training);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.patch('http://localhost:3000/training/' + training.trainingId, body, {headers: headers})
+        return this.http.patch('http://localhost:3000/admin/stage/' + training.trainingId, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
     deleteTraining(training: Training) {
         this.trainings.splice(this.trainings.indexOf(training), 1);
-        return this.http.delete('http://localhost:3000/training/' + training.trainingId)
+        return this.http.delete('http://localhost:3000/admin/stage/' + training.trainingId)
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
