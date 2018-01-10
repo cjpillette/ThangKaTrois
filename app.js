@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var appRoutes = require('./routes/app');
-var trainingRoutes = require('./routes/training');
+var trainingRoutes = require('./routes/trainings');
 
 var app = express();
 mongoose.connect('localhost:27017/thang-ka');
