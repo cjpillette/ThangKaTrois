@@ -7,10 +7,10 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var appRoutes = require('./routes/app');
-var trainingRoutes = require('./routes/trainings');
+var messageRoutes = require('./routes/messages');
 
 var app = express();
-mongoose.connect('localhost:27017/thang-ka');
+mongoose.connect('mongodb://localhost:27017/thangka');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +31,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use('/training', trainingRoutes);
+app.use('/message', messageRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

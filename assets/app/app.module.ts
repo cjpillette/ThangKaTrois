@@ -32,16 +32,15 @@ import { HousingComponent } from './area/housing/housing.component';
 import { WeatherComponent } from './area/weather/weather.component';
 import { SitesComponent } from './area/sites/sites.component';
 import { TravelsComponent } from './area/travels/travels.component';
-import { RegistrationComponent } from './school/registration/registration.component';
 import { AuthenticationComponent } from './auth/authentication.component';
 import { routing } from "./app.routing";
 import { LogoutComponent } from "./auth/logout.component";
 import { SignupComponent } from "./auth/signup.component";
 import { SigninComponent } from "./auth/signin.component";
-import { TrainingInputComponent } from "./admin/training-input.component";
-import { TrainingListComponent } from "./admin/training-list.component";
-import { TrainingComponent } from "./admin/training.component";
-import { TrainingsComponent } from "./admin/trainings.component";
+import { MessageComponent } from "./messages/message.component";
+import { MessageListComponent } from "./messages/message-list.component";
+import { MessageInputComponent } from "./messages/message-input.component";
+import { MessagesComponent } from "./messages/messages.component";
 
 @NgModule({
   declarations: [
@@ -60,15 +59,14 @@ import { TrainingsComponent } from "./admin/trainings.component";
     WeatherComponent,
     SitesComponent,
     TravelsComponent,
-    RegistrationComponent,
     AuthenticationComponent,
     LogoutComponent,
     SignupComponent,
     SigninComponent,
-    TrainingInputComponent,
-    TrainingListComponent,
-    TrainingComponent,
-    TrainingsComponent
+    MessageComponent,
+    MessageListComponent,
+    MessageInputComponent,
+    MessagesComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
