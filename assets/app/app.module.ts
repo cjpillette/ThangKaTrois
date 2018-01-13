@@ -41,6 +41,7 @@ import { TrainingComponent } from "./trainings/training.component";
 import { TrainingListComponent } from "./trainings/training-list.component";
 import { TrainingInputComponent } from "./trainings/training-input.component";
 import { TrainingsComponent } from "./trainings/trainings.component";
+import { AuthService } from "./auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -89,7 +90,7 @@ import { TrainingsComponent } from "./trainings/trainings.component";
     ReactiveFormsModule,
     routing
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
