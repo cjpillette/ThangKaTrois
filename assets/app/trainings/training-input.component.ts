@@ -17,6 +17,7 @@ export class TrainingInputComponent implements OnInit {
         if (this.training) {
             // Edit
             this.training.content = form.value.content;
+            this.training.startDate = form.value.startDate;
             this.trainingService.updateTraining(this.training)
                 .subscribe(
                     result => console.log(result)
@@ -24,7 +25,7 @@ export class TrainingInputComponent implements OnInit {
             this.training = null;
         } else {
             // Create
-            const training = new Training(form.value.content, 'Max');
+            const training = new Training(form.value.content, form.value.startDate, 'Max');
             this.trainingService.addTraining(training)
                 .subscribe(
                     data => console.log(data),

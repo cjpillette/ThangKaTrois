@@ -31,7 +31,7 @@ export class TrainingComponent {
     }
 
     onDelete() {
-        this.trainingService.deleteTrainig(this.training)
+        this.trainingService.deleteTraining(this.training)
             .subscribe(
                 result => console.log(result)
             );
