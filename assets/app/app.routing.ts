@@ -19,7 +19,7 @@ const APP_ROUTES: Routes = [
     { path: 'se-loger', component: HousingComponent },
     { path: 'calendrier', component: CalendarComponent },
     { path: 'stage/inscription', component: RegistrationComponent },
-    { path: 'admin/stage', component: TrainingsComponent },
+    { path: 'trainings', component: TrainingsComponent },
     { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES }
 ];
 

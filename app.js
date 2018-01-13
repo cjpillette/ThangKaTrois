@@ -31,7 +31,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use('/admin/stage', trainingRoutes);
+app.use('/training', trainingRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
