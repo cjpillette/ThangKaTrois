@@ -37,10 +37,10 @@ import { routing } from "./app.routing";
 import { LogoutComponent } from "./auth/logout.component";
 import { SignupComponent } from "./auth/signup.component";
 import { SigninComponent } from "./auth/signin.component";
-import { MessageComponent } from "./messages/message.component";
-import { MessageListComponent } from "./messages/message-list.component";
-import { MessageInputComponent } from "./messages/message-input.component";
-import { MessagesComponent } from "./messages/messages.component";
+import { TrainingComponent } from "./trainings/training.component";
+import { TrainingListComponent } from "./trainings/training-list.component";
+import { TrainingInputComponent } from "./trainings/training-input.component";
+import { TrainingsComponent } from "./trainings/trainings.component";
 
 @NgModule({
   declarations: [
@@ -63,10 +63,10 @@ import { MessagesComponent } from "./messages/messages.component";
     LogoutComponent,
     SignupComponent,
     SigninComponent,
-    MessageComponent,
-    MessageListComponent,
-    MessageInputComponent,
-    MessagesComponent,
+    TrainingComponent,
+    TrainingListComponent,
+    TrainingInputComponent,
+    TrainingsComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({

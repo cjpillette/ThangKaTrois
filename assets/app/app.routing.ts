@@ -7,7 +7,7 @@ import { TravelsComponent } from "./area/travels/travels.component";
 import { WeatherComponent } from "./area/weather/weather.component";
 import { HousingComponent } from "./area/housing/housing.component";
 import { CalendarComponent } from "./calendar/calendar.component";
-import { MessagesComponent } from "./messages/messages.component";
+import { TrainingsComponent } from "./trainings/trainings.component";
 import { AUTH_ROUTES } from "./auth/auth.routes";
 
 const APP_ROUTES: Routes = [
@@ -17,7 +17,7 @@ const APP_ROUTES: Routes = [
     { path: 'meteo', component: WeatherComponent },
     { path: 'se-loger', component: HousingComponent },
     { path: 'calendrier', component: CalendarComponent },
-    { path: 'messages', component: MessagesComponent },
+    { path: 'stages', component: TrainingsComponent },
     { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES }
 ];
 

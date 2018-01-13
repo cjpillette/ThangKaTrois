@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
-import { MessageService } from "./messages/message.service";
+import { TrainingService } from "./trainings/training.service";
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [MessageService]
+  providers: [TrainingService]
 })
 export class AppComponent {
 }
