@@ -22,7 +22,9 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     var training = new Training({
         content: req.body.content,
-        startDate: req.body.startDate
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        maxParticipants: req.body.maxParticipants
     });
     training.save(function (err, result) {
         if (err) {
@@ -54,6 +56,8 @@ router.patch('/:id', function (req, res, next) {
         }
         training.content = req.body.content;
         training.startDate = req.body.startDate;
+        training.endDate = req.body.endDate;
+        training.maxParticipants = req.body.maxParticipants;
         training.save(function(err, result) {
             if (err) {
                 return res.status(500).json({

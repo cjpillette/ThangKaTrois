@@ -18,7 +18,7 @@ export class TrainingService {
         return this.http.post('http://localhost:3000/training', body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
-                const training = new Training(result.obj.content, result.obj.startDate, 'Dummy', result.obj._id, null);
+                const training = new Training(result.obj.content, result.obj.startDate, result.obj.endDate, result.obj.maxParticipants, 'Dummy', result.obj._id, null);
                 this.trainings.push(training);
                 return training;
             })
@@ -31,7 +31,7 @@ export class TrainingService {
                 const trainings = response.json().obj;
                 let transformedTrainings: Training[] = [];
                 for (let training of trainings) {
-                    transformedTrainings.push(new Training(training.content, training.startDate, 'Dummy', training._id, null));
+                    transformedTrainings.push(new Training(training.content, training.startDate, training.endDate, training.maxParticipants, 'Dummy', training._id, null));
                 }
                 this.trainings = transformedTrainings;
                 return transformedTrainings;
