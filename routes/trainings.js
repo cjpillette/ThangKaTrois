@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
 
 var Training = require('../models/training');
+var User = require('../models/user');
 
 router.get('/', function (req, res, next) {
     Training.find()
@@ -19,26 +21,55 @@ router.get('/', function (req, res, next) {
         });
 });
 
-router.post('/', function (req, res, next) {
-    var training = new Training({
-        content: req.body.content,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
-        maxParticipants: req.body.maxParticipants
+// on each request this router is reached except get request 
+// which is handled before this second method
+router.use('/', function(req, res, next){
+    jwt.verify(req.query.token, 'secret', function(err, decoded) {
+        if (err) {
+            return res.status(401).json({
+                title: 'Not Authenticated',
+                error: err 
+            })
+        }
+        // to let the request continue:
+        next();
     });
-    training.save(function (err, result) {
+});
+
+router.post('/', function (req, res, next) {
+    // need to fetch user in order to associate it to training
+    var decoded = jwt.decode(req.query.token);
+    User.findById(decoded.user._id, function(err, user) {
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred',
                 error: err
             });
         }
-        res.status(201).json({
-            message: 'Saved message',
-            obj: result
+        var training = new Training({
+            content: req.body.content,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate,
+            maxParticipants: req.body.maxParticipants,
+            user: user._id
         });
-    });
+        training.save(function (err, result) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'An error occurred',
+                    error: err
+                });
+            }
+            user.trainings.push(result);
+            user.save();
+            res.status(201).json({
+                message: 'Saved message',
+                obj: result
+            });
+        });
+    })
 });
+
 
 router.patch('/:id', function (req, res, next) {
     Training.findById(req.params.id, function (err, training) {
