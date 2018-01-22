@@ -10,15 +10,16 @@ export class CalendarComponent implements OnInit {
   @ViewChild('tableBody', {read: ElementRef}) tableBody: ElementRef;
 
   // for the header
-  currentMonth: String = moment().format('MMMM');
+  currentMonth: string = moment().locale("fr").format('MMMM');
 
   // for subheader
   days: Array<string> = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-
+  months: Array<string> = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
+  
   constructor(private renderer: Renderer2) { }
-
+  
   ngOnInit() {}
-
+  
   ngAfterViewInit() {
     const monthArray: Array<any> = this.getMonth('1')
     this.displayHtmlMonthTable(monthArray);
@@ -63,6 +64,18 @@ export class CalendarComponent implements OnInit {
       // add the row to the end of the table body
       this.renderer.appendChild(this.tableBody.nativeElement, tr);
     }
+  }
+
+  getCurrentNumMonth() {
+    return this.months.indexOf(this.currentMonth) + 1;
+  }
+
+  changeDate = (difference) => {
+    moment().add(difference, 'months')
+  }
+
+  changeMonth = (difference) => {
+    this.changeDate(difference);
   }
 
 }

@@ -43,6 +43,7 @@ import { TrainingInputComponent } from "./trainings/training-input.component";
 import { TrainingsComponent } from "./trainings/trainings.component";
 import { AuthService } from "./auth/auth.service";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,7 @@ import { AuthService } from "./auth/auth.service";
   ],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: process.env.GOOGLE_MAPS_API_KEY
     }),
     BrowserAnimationsModule,
     BrowserModule,
