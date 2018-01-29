@@ -4,11 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Build the front end
 
-Run `yarn run build` to build the angular 5 part of the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `npm run build` to build the angular 5 part of the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Build the back end
 
-Run `yarn run start` to start nodejs.
+Run `npm run start` to start nodejs.
 
 ## Start the mongo server 
 
