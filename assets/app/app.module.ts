@@ -6,16 +6,8 @@ import { HttpModule } from '@angular/http';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { WorkshopComponent } from './workshop/workshop.component';
@@ -33,15 +25,16 @@ import { WeatherComponent } from './area/weather/weather.component';
 import { SitesComponent } from './area/sites/sites.component';
 import { TravelsComponent } from './area/travels/travels.component';
 import { AuthenticationComponent } from './auth/authentication.component';
-import { routing } from "./app.routing";
-import { LogoutComponent } from "./auth/logout.component";
-import { SignupComponent } from "./auth/signup.component";
-import { SigninComponent } from "./auth/signin.component";
-import { TrainingComponent } from "./trainings/training.component";
-import { TrainingListComponent } from "./trainings/training-list.component";
-import { TrainingInputComponent } from "./trainings/training-input.component";
-import { TrainingsComponent } from "./trainings/trainings.component";
-import { AuthService } from "./auth/auth.service";
+import { routing } from './app.routing';
+import { LogoutComponent } from './auth/logout.component';
+import { SignupComponent } from './auth/signup.component';
+import { SigninComponent } from './auth/signin.component';
+import { TrainingComponent } from './trainings/training.component';
+import { TrainingListComponent } from './trainings/training-list.component';
+import { TrainingInputComponent } from './trainings/training-input.component';
+import { TrainingsComponent } from './trainings/trainings.component';
+import { AuthService } from './auth/auth.service';
+import { MaterialModule } from './material.module';
 
 
 @NgModule({
@@ -78,17 +71,10 @@ import { AuthService } from "./auth/auth.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatMenuModule,
-    MatTabsModule,
-    MatToolbarModule,
+    MaterialModule,
     MomentModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     routing
   ],
   providers: [AuthService],

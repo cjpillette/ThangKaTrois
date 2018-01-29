@@ -1,0 +1,13 @@
+input { 
+    border: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+/* Removing the yellow default background in input field */
+input:-webkit-autofill {
+    box-shadow: 0 0 0 30px white inset;
+}
