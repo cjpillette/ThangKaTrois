@@ -7,10 +7,9 @@ import * as moment from 'moment';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  public counter: number;
-  currentDate: moment.Moment; // for math
+  currentDate: moment.Moment; // for calculation
   monthTitle: string; // for show
-  monthNumber: number; // for calculation
+  fullMonth = []; // contains all the days in moments of the month
 
   @ViewChild('tableBody', {read: ElementRef}) tableBody: ElementRef;
 
@@ -19,11 +18,10 @@ export class CalendarComponent implements OnInit {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.counter = moment().month();
-    // initializing the month we're at as a moment for math and as a string for show (in the title)
-    this.currentDate = moment();
-    this.monthNumber = moment().month();
-    this.monthTitle = moment().locale('fr').format('MMMM'); // i.e fevrier
+    this.currentDate = moment(); // for the content of the table
+    this.monthTitle = moment().locale('fr').format('MMMM'); // for the title
+    this.fullMonth = this.getMonth(this.currentDate);
+    console.log('this.fullMonth in parent', this.fullMonth);
   }
 
   ngAfterViewInit() {
@@ -46,6 +44,7 @@ export class CalendarComponent implements OnInit {
         days: Array(7).fill(0).map((n, i) => moment().week(week).startOf('week').clone().add(n + i, 'day'))
       });
     }
+    this.fullMonth = monthlyCalendar;
     return monthlyCalendar;
   }
 
@@ -81,7 +80,6 @@ export class CalendarComponent implements OnInit {
 
     decrement() {
       const lastMonth = this.currentDate.subtract(1, 'M');
-      console.log('last month', lastMonth);
     }
 
 }

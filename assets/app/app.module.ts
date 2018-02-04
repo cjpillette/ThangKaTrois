@@ -35,6 +35,7 @@ import { TrainingInputComponent } from './trainings/training-input.component';
 import { TrainingsComponent } from './trainings/trainings.component';
 import { AuthService } from './auth/auth.service';
 import { MaterialModule } from './material.module';
+import { CalendarDaysComponent } from './calendar/calendar-days/calendar-days.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { MaterialModule } from './material.module';
     TrainingListComponent,
     TrainingInputComponent,
     TrainingsComponent,
+    CalendarDaysComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
