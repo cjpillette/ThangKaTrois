@@ -14,19 +14,10 @@
     </div>
   </div>
   
-  <table>
-    <th
-      *ngFor="let day of days"
-      class="day-header">
-      {{ day }}
-    </th>
-    <tbody #tableBody>
-    </tbody>
-  </table>
+  <app-calendar-days [fullMonth]="fullMonth" [days]="days"></app-calendar-days>   
 </div>
+
+<br>
 
 <a routerLink="/stage/inscription">Fiche d'inscription</a>
 
-<hr>
-
-<app-calendar-days [fullMonth]="fullMonth"></app-calendar-days>
