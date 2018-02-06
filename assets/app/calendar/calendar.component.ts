@@ -22,17 +22,17 @@ export class CalendarComponent implements OnInit {
 
   getMonth(mmt: moment.Moment) {
     const monthlyCalendar = [];
-    const startWeek = mmt.startOf('month').week(); // week number in the year
-    const endWeek = mmt.endOf('month').week(); // week number in the year
+    const startWeek = mmt.startOf('month').isoWeek(); // week number in the year starting on MON
+    const endWeek = mmt.endOf('month').isoWeek();
+    const year = mmt.year();
+
 
     for (let week = startWeek; week <= endWeek; week++) {
       monthlyCalendar.push({
-        week: week,
-        days: Array(7).fill(0).map((n, i) => moment().week(week).startOf('isoWeek').clone().add(n + i, 'day'))
+        days: Array(7).fill(0).map((n, i) => moment().week(week).set('year', year).startOf('isoWeek').clone().add(n + i, 'day'))
       });
     }
     this.fullMonth = monthlyCalendar;
-    console.log('monthlyCalendar', monthlyCalendar);
     return monthlyCalendar;
   }
 
@@ -40,14 +40,14 @@ export class CalendarComponent implements OnInit {
       const nextMonth = this.currentDate.add(1, 'M');
       this.getMonth(nextMonth);
       this.currentDate = nextMonth;
-      console.log('in increment nextMOnth', nextMonth);
+      this.monthTitle = nextMonth.locale('fr').format('MMMM');
     }
 
     decrement() {
       const lastMonth = this.currentDate.subtract(1, 'M');
       this.getMonth(lastMonth);
       this.currentDate = lastMonth;
-      console.log('in decrement lastMonth', lastMonth);
+      this.monthTitle = lastMonth.locale('fr').format('MMMM');
     }
 
 }

@@ -5,7 +5,8 @@
     </th>
     <tbody>
         <tr *ngFor="let i of fullMonth">
-            <td *ngFor="let item of i.days">
+            <td *ngFor="let item of i.days"
+            [ngStyle]="{'background-color':item.month() === 0 ? 'green' : 'red' }">
                 {{ item }}
             </td>
         </tr>

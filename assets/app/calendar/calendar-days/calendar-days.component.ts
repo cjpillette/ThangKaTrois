@@ -13,6 +13,7 @@ export class CalendarDaysComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log((this.fullMonth[0].days[0].month()));
   }
 
 }
