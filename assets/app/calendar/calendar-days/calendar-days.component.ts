@@ -7,13 +7,13 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class CalendarDaysComponent implements OnInit {
   @Input() fullMonth: Array<any>;
+  @Input() monthNumber: number;
   @Input() days: Array<string>;
 
   constructor() {
    }
 
   ngOnInit() {
-    console.log((this.fullMonth[0].days[0].month()));
   }
 
 }

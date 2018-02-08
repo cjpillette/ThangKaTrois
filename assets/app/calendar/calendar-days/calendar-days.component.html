@@ -4,10 +4,10 @@
         {{ day }}
     </th>
     <tbody>
-        <tr *ngFor="let i of fullMonth">
-            <td *ngFor="let item of i.days"
-            [ngStyle]="{'background-color':item.month() === 0 ? 'green' : 'red' }">
-                {{ item }}
+        <tr *ngFor="let week of fullMonth">
+            <td *ngFor="let day of week.days"
+            [ngStyle]="{'background-color':day.month() === monthNumber ? 'white' : 'grey' }">
+                {{ day }}
             </td>
         </tr>
     </tbody>
