@@ -36,6 +36,7 @@ import { TrainingsComponent } from './trainings/trainings.component';
 import { AuthService } from './auth/auth.service';
 import { MaterialModule } from './material.module';
 import { CalendarDaysComponent } from './calendar/calendar-days/calendar-days.component';
+import { TrainingService } from '../app/trainings/training.service';
 
 
 @NgModule({
@@ -79,7 +80,7 @@ import { CalendarDaysComponent } from './calendar/calendar-days/calendar-days.co
     FlexLayoutModule,
     routing
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

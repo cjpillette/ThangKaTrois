@@ -1,5 +1,8 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import * as moment from 'moment';
+
+import { TrainingService } from '../../trainings/training.service';
+import { Training } from '../../trainings/training.model';
 
 @Component({
   selector: 'app-calendar-days',
@@ -22,11 +25,19 @@ export class CalendarDaysComponent implements OnInit {
     ],
     particpants: '8' };
 
-  constructor() {
-   }
+  trainings: Training[];
+
+  constructor(private trainingService: TrainingService) {}
 
   ngOnInit() {
-  }
+      this.trainingService.getTrainingsForCalendar()
+          .subscribe(
+              (trainings) => {
+                  this.trainings = trainings;
+              }
+            );
+            console.log('this.trainings', this.trainings);
+    }
 
   whichDay(day) {
     this.selectedDay.emit(day);

@@ -2,6 +2,7 @@ import { Http, Response, Headers } from '@angular/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs';
+import * as moment from 'moment';
 
 import { Training } from './training.model';
 
@@ -36,6 +37,34 @@ export class TrainingService {
                 for (let training of trainings) {
                     transformedTrainings.push(new Training(training.content, training.startDate, training.endDate, training.maxParticipants, 'Dummy', training._id, null));
                 }
+                this.trainings = transformedTrainings;
+                return transformedTrainings;
+            })
+            .catch((error: Response) => Observable.throw(error.json()));
+    }
+
+    getTrainingsForCalendar() {
+        function getRange(start, stop) {
+            const dateArray = [];
+            let currentDate = moment(start);
+            const stopDate = moment(stop);
+            while (currentDate <= stopDate) {
+                dateArray.push( moment(currentDate).format('YYYY-MM-DD') );
+                currentDate = moment(currentDate).add(1, 'days');
+            }
+            return dateArray;
+        }
+          return this.http.get('http://localhost:3000/training')
+            .map((response: Response) => {
+                const trainings = response.json().obj;
+                const transformedTrainings = [];
+                for (let training of trainings) {
+                    const range = getRange(training.startDate, training.endDate);
+                    const title = training.content;
+                    const maxParticipants = training.maxParticipants;
+                    transformedTrainings.push(title, range, maxParticipants);
+                }
+                console.log('transformedTrainings', transformedTrainings);
                 this.trainings = transformedTrainings;
                 return transformedTrainings;
             })
