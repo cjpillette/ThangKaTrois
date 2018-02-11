@@ -12,14 +12,15 @@ export class CalendarDaysComponent implements OnInit {
   @Input() days: Array<string>;
   @Output() selectedDay: EventEmitter<any> = new EventEmitter();
 
-  stage1 = [
+  training1 = { content: 'stage 1', dates: [
     '2018-02-12',
     '2018-02-13',
     '2018-02-14',
     '2018-02-15',
     '2018-02-16',
     '2018-02-17'
-  ];
+    ],
+    particpants: '8' };
 
   constructor() {
    }

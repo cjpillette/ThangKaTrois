@@ -9,7 +9,7 @@
             [ngStyle]="{'background-color':day.month() === monthNumber ? 'white' : 'grey' }"
             (click)="whichDay(day)">
                 {{ day.date() }}
-                <ng-container *ngFor="let i of stage1">
+                <ng-container *ngFor="let i of training1.dates">
                     <div *ngIf="day.isSame(i, 'day')" class="green-licence"></div>
                 </ng-container>
             </td>

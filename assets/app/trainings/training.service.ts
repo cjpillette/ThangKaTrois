@@ -1,9 +1,9 @@
-import { Http, Response, Headers } from "@angular/http";
-import { Injectable, EventEmitter } from "@angular/core";
+import { Http, Response, Headers } from '@angular/http';
+import { Injectable, EventEmitter } from '@angular/core';
 import 'rxjs/Rx';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
-import { Training } from "./training.model";
+import { Training } from './training.model';
 
 @Injectable()
 export class TrainingService {
@@ -32,7 +32,7 @@ export class TrainingService {
         return this.http.get('http://localhost:3000/training')
             .map((response: Response) => {
                 const trainings = response.json().obj;
-                let transformedTrainings: Training[] = [];
+                const transformedTrainings: Training[] = [];
                 for (let training of trainings) {
                     transformedTrainings.push(new Training(training.content, training.startDate, training.endDate, training.maxParticipants, 'Dummy', training._id, null));
                 }
@@ -49,7 +49,7 @@ export class TrainingService {
     updateTraining(training: Training) {
         const body = JSON.stringify(training);
         const headers = new Headers({'Content-Type': 'application/json'});
-        const token = localStorage.getItem('token') 
+        const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
         return this.http.patch('http://localhost:3000/training/' + training.trainingId + token, body, {headers: headers})

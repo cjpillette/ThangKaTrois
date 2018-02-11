@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-import { TrainingService } from "./training.service";
-import { Training } from "./training.model";
+import { TrainingService } from './training.service';
+import { Training } from './training.model';
 
 @Component({
     selector: 'app-training-input',
