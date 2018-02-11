@@ -17,7 +17,8 @@
   <app-calendar-days 
     [fullMonth]="fullMonth"
     [days]="days"
-    [monthNumber]="monthNumber">
+    [monthNumber]="monthNumber"
+    (selectedDay)="selectedDay($event)">
   </app-calendar-days>   
 </div>
 

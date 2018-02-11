@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-calendar-days',
@@ -9,11 +10,25 @@ export class CalendarDaysComponent implements OnInit {
   @Input() fullMonth: Array<any>;
   @Input() monthNumber: number;
   @Input() days: Array<string>;
+  @Output() selectedDay: EventEmitter<any> = new EventEmitter();
+
+  stage1 = [
+    '2018-02-12',
+    '2018-02-13',
+    '2018-02-14',
+    '2018-02-15',
+    '2018-02-16',
+    '2018-02-17'
+  ];
 
   constructor() {
    }
 
   ngOnInit() {
+  }
+
+  whichDay(day) {
+    this.selectedDay.emit(day);
   }
 
 }

@@ -6,8 +6,12 @@
     <tbody>
         <tr *ngFor="let week of fullMonth">
             <td *ngFor="let day of week.days"
-            [ngStyle]="{'background-color':day.month() === monthNumber ? 'white' : 'grey' }">
-                {{ day }}
+            [ngStyle]="{'background-color':day.month() === monthNumber ? 'white' : 'grey' }"
+            (click)="whichDay(day)">
+                {{ day.date() }}
+                <ng-container *ngFor="let i of stage1">
+                    <div *ngIf="day.isSame(i, 'day')" class="green-licence"></div>
+                </ng-container>
             </td>
         </tr>
     </tbody>

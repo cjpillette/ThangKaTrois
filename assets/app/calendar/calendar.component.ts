@@ -24,34 +24,43 @@ export class CalendarComponent implements OnInit {
 
   getMonth(mmt: moment.Moment) {
     const monthlyCalendar = [];
+    const year = mmt.year();
+    const month = mmt.month();
+
     const startWeek = mmt.startOf('month').isoWeek(); // week number in the year starting on MON
     const endWeek = mmt.endOf('month').isoWeek();
-    const year = mmt.year();
-
 
     for (let week = startWeek; week <= endWeek; week++) {
       monthlyCalendar.push({
-        days: Array(7).fill(0).map((n, i) => moment().week(week).set('year', year).startOf('isoWeek').clone().add(n + i, 'day'))
+        days: Array(7).fill(0).map((n, i) => moment().year(year).isoWeek(week).startOf('isoWeek').clone().add(n + i, 'day'))
       });
     }
     this.fullMonth = monthlyCalendar;
     return monthlyCalendar;
   }
 
-    increment() {
-      const nextMonth = this.currentDate.add(1, 'M');
-      this.getMonth(nextMonth);
-      this.currentDate = nextMonth;
-      this.monthTitle = nextMonth.locale('fr').format('MMMM');
-      this.monthNumber = nextMonth.month();
-    }
+  isYearStartingOnSunday(startWeek, endWeek, year) {
+    return [startWeek, endWeek];
+  }
 
-    decrement() {
-      const lastMonth = this.currentDate.subtract(1, 'M');
-      this.getMonth(lastMonth);
-      this.currentDate = lastMonth;
-      this.monthTitle = lastMonth.locale('fr').format('MMMM');
-      this.monthNumber = lastMonth.month();
-    }
+  increment() {
+    const nextMonth = this.currentDate.add(1, 'M');
+    this.currentDate = nextMonth;
+    this.monthTitle = nextMonth.locale('fr').format('MMMM');
+    this.monthNumber = nextMonth.month();
+    this.getMonth(nextMonth);
+  }
+
+  decrement() {
+    const lastMonth = this.currentDate.subtract(1, 'M');
+    this.currentDate = lastMonth;
+    this.monthTitle = lastMonth.locale('fr').format('MMMM');
+    this.monthNumber = lastMonth.month();
+    this.getMonth(lastMonth);
+  }
+
+  selectedDay(evt) {
+    console.log('evt', evt);
+  }
 
 }
